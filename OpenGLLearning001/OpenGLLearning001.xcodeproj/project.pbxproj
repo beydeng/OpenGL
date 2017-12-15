@@ -16,6 +16,8 @@
 		0723C43F1FE2805D0012691D /* OpenGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0723C43E1FE2805D0012691D /* OpenGLView.m */; };
 		0723C4421FE280990012691D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0723C4411FE280990012691D /* QuartzCore.framework */; };
 		0723C4441FE2809F0012691D /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0723C4431FE2809F0012691D /* OpenGLES.framework */; };
+		076AD61A1FE3650C002F8885 /* VerterShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 076AD6191FE3650C002F8885 /* VerterShader.glsl */; };
+		076AD61E1FE36F34002F8885 /* FragmentShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 076AD61D1FE36F34002F8885 /* FragmentShader.glsl */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +35,8 @@
 		0723C43E1FE2805D0012691D /* OpenGLView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OpenGLView.m; sourceTree = "<group>"; };
 		0723C4411FE280990012691D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		0723C4431FE2809F0012691D /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		076AD6191FE3650C002F8885 /* VerterShader.glsl */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = VerterShader.glsl; sourceTree = "<group>"; };
+		076AD61D1FE36F34002F8885 /* FragmentShader.glsl */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = FragmentShader.glsl; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +72,7 @@
 		0723C4251FE2801F0012691D /* OpenGLLearning001 */ = {
 			isa = PBXGroup;
 			children = (
+				076AD6181FE364E9002F8885 /* glsl */,
 				0723C4261FE2801F0012691D /* AppDelegate.h */,
 				0723C4271FE2801F0012691D /* AppDelegate.m */,
 				0723C4291FE2801F0012691D /* ViewController.h */,
@@ -90,6 +95,15 @@
 				0723C4411FE280990012691D /* QuartzCore.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		076AD6181FE364E9002F8885 /* glsl */ = {
+			isa = PBXGroup;
+			children = (
+				076AD6191FE3650C002F8885 /* VerterShader.glsl */,
+				076AD61D1FE36F34002F8885 /* FragmentShader.glsl */,
+			);
+			path = glsl;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,9 +164,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				076AD61A1FE3650C002F8885 /* VerterShader.glsl in Resources */,
 				0723C4331FE2801F0012691D /* LaunchScreen.storyboard in Resources */,
 				0723C4301FE2801F0012691D /* Assets.xcassets in Resources */,
 				0723C42E1FE2801F0012691D /* Main.storyboard in Resources */,
+				076AD61E1FE36F34002F8885 /* FragmentShader.glsl in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

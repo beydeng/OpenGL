@@ -148,14 +148,40 @@
     
 }
 
+-(void)render{
+    
+    glClearColor(0, 1, 1, 0);
+    glClear(GL_COLOR_BUFFER_BIT);
+    glViewport(0, 200, 200, 200);
+    
+    //使用glVertexAttribPointer函数告诉OpenGL该如何解析顶点数据（应用到逐个顶点属性上）
+    
+    GLfloat vertices[] = {
+        -0.5f, -0.5f, 0.0f,
+        0.5f, -0.5f, 0.0f,
+        0.0f,  0.5f, 0.0f
+    };
+
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3*sizeof(GLfloat), vertices);
+    glEnableVertexAttribArray(0);
+    glDrawArrays(GL_TRIANGLES, 0, 3);
+    [_context presentRenderbuffer:GL_RENDERBUFFER];
+
+}
+
+
+
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
         
-        
-        
+        [self setupLayer];
+        [self setupContext];
+        [self setupBuffer];
+        [self compileShaderVertex:@"VerterShader" fragment:@"FragmentShader"];
+        [self render];
         
     }
     return self;
