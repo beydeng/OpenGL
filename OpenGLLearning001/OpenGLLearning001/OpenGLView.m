@@ -275,14 +275,80 @@
 
 }
 
+//Element Buffer Object
+#pragma -mark 索引缓冲对象EBO
+-(GLuint)setupEBO
+{
+    
+    GLfloat vertices[] = {
+        0.5f, 0.5f, 0.0f,   // 右上角
+        0.5f, -0.5f, 0.0f,  // 右下角
+        -0.5f, -0.5f, 0.0f, // 左下角
+        -0.5f, 0.5f, 0.0f   // 左上角
+    };
+    
+    GLuint indices[] = { // 注意索引从0开始!
+        0, 1, 3, // 第一个三角形
+        1, 2, 3  // 第二个三角形
+    };
+    
+    
+    // 1. 绑定顶点数组对象
+    GLuint VAO;
+    glGenVertexArrays(1, &VAO);
+    glBindVertexArray(VAO);
+    // 2. 把我们的顶点数组复制到一个顶点缓冲中，供OpenGL使用
+    GLuint VBO;
+    glGenBuffers(1, &VBO);
+    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+    
+    
+    // 3. 复制我们的索引数组到一个索引缓冲中，供OpenGL使用
+    GLuint EBO;
+    glGenBuffers(1, &EBO);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+    
+    // 4. 设定顶点属性指针
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (GLvoid*)0);
+    glEnableVertexAttribArray(0);
+    
+    // 5. 解绑VAO（不是EBO！）
+    glBindVertexArray(0);
+    
+    return VAO;
+    
+}
 
+#pragma -mark 使用EBO绘制矩形
+-(void)setupTriangleUseEBO
+{
+    [self setupLayer];
+    [self setupContext];
+    [self setupBuffer];
+    [self compileShaderVertex:@"VerterShader" fragment:@"FragmentShader"];
+    
+    glClearColor(0, 1, 1, 0);
+    glClear(GL_COLOR_BUFFER_BIT);
+    glViewport(0, 200, 200, 200);
+    
+    glBindVertexArray([self setupEBO]);
+    
+    glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+    
+    [_context presentRenderbuffer:GL_RENDERBUFFER];
+    
+    glBindVertexArray(0); //解绑VAO
+    
+}
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
         
-        [self setupTriangleUseVAO];
+        [self setupTriangleUseEBO];
         
     }
     return self;
