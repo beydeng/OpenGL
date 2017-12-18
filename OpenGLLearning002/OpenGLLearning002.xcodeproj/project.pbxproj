@@ -7,15 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0758FC771FE75386002D5902 /* NewFragmentShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 0758FC761FE75386002D5902 /* NewFragmentShader.glsl */; };
+		0758FC7A1FE76CAD002D5902 /* moreAttributeVertexColor.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 0758FC791FE76CAD002D5902 /* moreAttributeVertexColor.glsl */; };
+		0758FC7C1FE76CC0002D5902 /* moreAttributeFragmentShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 0758FC7B1FE76CC0002D5902 /* moreAttributeFragmentShader.glsl */; };
+		0758FC801FE78DE1002D5902 /* Shader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0758FC7F1FE78DE1002D5902 /* Shader.m */; };
 		076AD62D1FE3BD49002F8885 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 076AD62C1FE3BD49002F8885 /* AppDelegate.m */; };
 		076AD6301FE3BD49002F8885 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 076AD62F1FE3BD49002F8885 /* ViewController.m */; };
 		076AD6331FE3BD49002F8885 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 076AD6311FE3BD49002F8885 /* Main.storyboard */; };
 		076AD6351FE3BD49002F8885 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 076AD6341FE3BD49002F8885 /* Assets.xcassets */; };
 		076AD6381FE3BD49002F8885 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 076AD6361FE3BD49002F8885 /* LaunchScreen.storyboard */; };
 		076AD63B1FE3BD49002F8885 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 076AD63A1FE3BD49002F8885 /* main.m */; };
+		076AD6431FE3BDD4002F8885 /* OpenGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 076AD6421FE3BDD4002F8885 /* OpenGLView.m */; };
+		07E7DED41FE3CA6A00962079 /* VertexColor.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 07E7DED31FE3CA6A00962079 /* VertexColor.glsl */; };
+		07E7DED61FE3CA9700962079 /* FragmentShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 07E7DED51FE3CA9700962079 /* FragmentShader.glsl */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0758FC761FE75386002D5902 /* NewFragmentShader.glsl */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = NewFragmentShader.glsl; sourceTree = "<group>"; };
+		0758FC791FE76CAD002D5902 /* moreAttributeVertexColor.glsl */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = moreAttributeVertexColor.glsl; sourceTree = "<group>"; };
+		0758FC7B1FE76CC0002D5902 /* moreAttributeFragmentShader.glsl */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = moreAttributeFragmentShader.glsl; sourceTree = "<group>"; };
+		0758FC7E1FE78DE1002D5902 /* Shader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Shader.h; sourceTree = "<group>"; };
+		0758FC7F1FE78DE1002D5902 /* Shader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Shader.m; sourceTree = "<group>"; };
 		076AD6281FE3BD49002F8885 /* OpenGLLearning002.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenGLLearning002.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		076AD62B1FE3BD49002F8885 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		076AD62C1FE3BD49002F8885 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -26,6 +38,10 @@
 		076AD6371FE3BD49002F8885 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		076AD6391FE3BD49002F8885 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		076AD63A1FE3BD49002F8885 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		076AD6411FE3BDD4002F8885 /* OpenGLView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenGLView.h; sourceTree = "<group>"; };
+		076AD6421FE3BDD4002F8885 /* OpenGLView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OpenGLView.m; sourceTree = "<group>"; };
+		07E7DED31FE3CA6A00962079 /* VertexColor.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = VertexColor.glsl; sourceTree = "<group>"; };
+		07E7DED51FE3CA9700962079 /* FragmentShader.glsl */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = FragmentShader.glsl; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +55,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0758FC781FE76C93002D5902 /* moreAttribute */ = {
+			isa = PBXGroup;
+			children = (
+				0758FC791FE76CAD002D5902 /* moreAttributeVertexColor.glsl */,
+				0758FC7B1FE76CC0002D5902 /* moreAttributeFragmentShader.glsl */,
+			);
+			path = moreAttribute;
+			sourceTree = "<group>";
+		};
+		0758FC7D1FE78CE8002D5902 /* Shader */ = {
+			isa = PBXGroup;
+			children = (
+				0758FC7E1FE78DE1002D5902 /* Shader.h */,
+				0758FC7F1FE78DE1002D5902 /* Shader.m */,
+			);
+			path = Shader;
+			sourceTree = "<group>";
+		};
 		076AD61F1FE3BD49002F8885 = {
 			isa = PBXGroup;
 			children = (
@@ -58,6 +92,8 @@
 		076AD62A1FE3BD49002F8885 /* OpenGLLearning002 */ = {
 			isa = PBXGroup;
 			children = (
+				0758FC7D1FE78CE8002D5902 /* Shader */,
+				0758FC781FE76C93002D5902 /* moreAttribute */,
 				076AD62B1FE3BD49002F8885 /* AppDelegate.h */,
 				076AD62C1FE3BD49002F8885 /* AppDelegate.m */,
 				076AD62E1FE3BD49002F8885 /* ViewController.h */,
@@ -67,6 +103,11 @@
 				076AD6361FE3BD49002F8885 /* LaunchScreen.storyboard */,
 				076AD6391FE3BD49002F8885 /* Info.plist */,
 				076AD63A1FE3BD49002F8885 /* main.m */,
+				076AD6411FE3BDD4002F8885 /* OpenGLView.h */,
+				076AD6421FE3BDD4002F8885 /* OpenGLView.m */,
+				07E7DED31FE3CA6A00962079 /* VertexColor.glsl */,
+				07E7DED51FE3CA9700962079 /* FragmentShader.glsl */,
+				0758FC761FE75386002D5902 /* NewFragmentShader.glsl */,
 			);
 			path = OpenGLLearning002;
 			sourceTree = "<group>";
@@ -130,8 +171,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				076AD6381FE3BD49002F8885 /* LaunchScreen.storyboard in Resources */,
+				0758FC771FE75386002D5902 /* NewFragmentShader.glsl in Resources */,
+				0758FC7A1FE76CAD002D5902 /* moreAttributeVertexColor.glsl in Resources */,
+				07E7DED41FE3CA6A00962079 /* VertexColor.glsl in Resources */,
+				0758FC7C1FE76CC0002D5902 /* moreAttributeFragmentShader.glsl in Resources */,
 				076AD6351FE3BD49002F8885 /* Assets.xcassets in Resources */,
 				076AD6331FE3BD49002F8885 /* Main.storyboard in Resources */,
+				07E7DED61FE3CA9700962079 /* FragmentShader.glsl in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,6 +191,8 @@
 				076AD6301FE3BD49002F8885 /* ViewController.m in Sources */,
 				076AD63B1FE3BD49002F8885 /* main.m in Sources */,
 				076AD62D1FE3BD49002F8885 /* AppDelegate.m in Sources */,
+				076AD6431FE3BDD4002F8885 /* OpenGLView.m in Sources */,
+				0758FC801FE78DE1002D5902 /* Shader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

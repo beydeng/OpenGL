@@ -1,13 +1,12 @@
 //
 //  ViewController.m
-//  OpenGLLearning002
+//  OpenGLLearning003
 //
-//  Created by DengPan on 2017/12/15.
+//  Created by DengPan on 2017/12/18.
 //  Copyright © 2017年 www.Beydeng.com. All rights reserved.
 //
 
 #import "ViewController.h"
-#import "OpenGLView.h"
 
 @interface ViewController ()
 
@@ -17,11 +16,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    OpenGLView *open = [[OpenGLView alloc]initWithFrame:self.view.frame];
-    
-    [self.view addSubview:open];
-    
     // Do any additional setup after loading the view, typically from a nib.
 }
 
