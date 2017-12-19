@@ -64,17 +64,17 @@
 
     //    调用了glCreateProgram glAttachShader glLinkProgram连接vertext和fragment shader成一个完整的program
     //    我们需要三步来使用着色器程序对象，现在已经很熟悉了。创建、附加、链接。
-    programHandle = glCreateProgram();//它简单的返回一个指向新程序对象的句柄。
-    glAttachShader(programHandle, vertexShader);//一旦创建了程序对象，下一步就是将着色器与之连接。每个程序对象必须连接一个顶点着色器和一个片段着色器。注意着色器可以在任何时候连接--在连接到程序之前不一定需要编译，甚至可以没有源代码。唯一的要求是，每个程序对象必须有且只有一个顶点着色器和片段着色器与之连接。除了连接着色器之外，你还可以用glDetachShader断开着色器的连接。
-    glAttachShader(programHandle, fragmentShader);
-    glLinkProgram(programHandle);//链接着色器。连接操作负责生成最终的可执行程序。连接程序将检查各种对象的数量，确保成功连接。
+    self.programHandle = glCreateProgram();//它简单的返回一个指向新程序对象的句柄。
+    glAttachShader(self.programHandle, vertexShader);//一旦创建了程序对象，下一步就是将着色器与之连接。每个程序对象必须连接一个顶点着色器和一个片段着色器。注意着色器可以在任何时候连接--在连接到程序之前不一定需要编译，甚至可以没有源代码。唯一的要求是，每个程序对象必须有且只有一个顶点着色器和片段着色器与之连接。除了连接着色器之外，你还可以用glDetachShader断开着色器的连接。
+    glAttachShader(self.programHandle, fragmentShader);
+    glLinkProgram(self.programHandle);//链接着色器。连接操作负责生成最终的可执行程序。连接程序将检查各种对象的数量，确保成功连接。
     
     GLint linkSuccess;
-    glGetProgramiv(programHandle, GL_LINK_STATUS, &linkSuccess);
+    glGetProgramiv(self.programHandle, GL_LINK_STATUS, &linkSuccess);
     if (linkSuccess == GL_FALSE) {
         
         GLchar messages[256];
-        glGetProgramInfoLog(programHandle, sizeof(messages), 0, &messages[0]);
+        glGetProgramInfoLog(self.programHandle, sizeof(messages), 0, &messages[0]);
         NSString *messageString = [NSString stringWithUTF8String:messages];
         NSLog(@"messageString==--==%@", messageString);
         exit(1);
@@ -95,8 +95,8 @@
 
 -(void)use
 {
-    glUseProgram(programHandle);
-    glDeleteShader(programHandle);
+    glUseProgram(self.programHandle);
+    glDeleteShader(self.programHandle);
 }
 
 @end

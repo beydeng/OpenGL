@@ -348,6 +348,10 @@
     self = [super initWithFrame:frame];
     if (self) {
         
+//        [self setupTriangleUseEBO];
+        
+//        [self setupTriangleUseUniform];
+        
         [self moreAttribute];
         
     }

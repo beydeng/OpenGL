@@ -14,7 +14,12 @@
 		0758FC9A1FE79657002D5902 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0758FC981FE79657002D5902 /* LaunchScreen.storyboard */; };
 		0758FC9D1FE79657002D5902 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0758FC9C1FE79657002D5902 /* main.m */; };
 		0758FCA51FE79663002D5902 /* Shader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0758FCA41FE79663002D5902 /* Shader.m */; };
-		0758FCA81FE7966A002D5902 /* OpenGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0758FCA61FE7966A002D5902 /* OpenGLView.m */; };
+		0758FCAB1FE79FF5002D5902 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0758FCAA1FE79FF5002D5902 /* OpenGLES.framework */; };
+		0758FCAD1FE79FFC002D5902 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0758FCAC1FE79FFC002D5902 /* QuartzCore.framework */; };
+		0758FCB01FE7A467002D5902 /* Vershader.vs in Resources */ = {isa = PBXBuildFile; fileRef = 0758FCAF1FE7A467002D5902 /* Vershader.vs */; };
+		0758FCB21FE7A47C002D5902 /* Fragment.frag in Resources */ = {isa = PBXBuildFile; fileRef = 0758FCB11FE7A47C002D5902 /* Fragment.frag */; };
+		0758FCB41FE7B2EA002D5902 /* Fragment2.frag in Resources */ = {isa = PBXBuildFile; fileRef = 0758FCB31FE7B2EA002D5902 /* Fragment2.frag */; };
+		0758FCBA1FE7BBAB002D5902 /* OpenGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0758FCB91FE7BBAB002D5902 /* OpenGLView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,8 +35,13 @@
 		0758FC9C1FE79657002D5902 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0758FCA31FE79663002D5902 /* Shader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Shader.h; path = ../../OpenGLLearning002/OpenGLLearning002/Shader/Shader.h; sourceTree = "<group>"; };
 		0758FCA41FE79663002D5902 /* Shader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Shader.m; path = ../../OpenGLLearning002/OpenGLLearning002/Shader/Shader.m; sourceTree = "<group>"; };
-		0758FCA61FE7966A002D5902 /* OpenGLView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = OpenGLView.m; path = ../../OpenGLLearning002/OpenGLLearning002/OpenGLView.m; sourceTree = "<group>"; };
-		0758FCA71FE7966A002D5902 /* OpenGLView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OpenGLView.h; path = ../../OpenGLLearning002/OpenGLLearning002/OpenGLView.h; sourceTree = "<group>"; };
+		0758FCAA1FE79FF5002D5902 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		0758FCAC1FE79FFC002D5902 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		0758FCAF1FE7A467002D5902 /* Vershader.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Vershader.vs; sourceTree = "<group>"; };
+		0758FCB11FE7A47C002D5902 /* Fragment.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Fragment.frag; sourceTree = "<group>"; };
+		0758FCB31FE7B2EA002D5902 /* Fragment2.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Fragment2.frag; sourceTree = "<group>"; };
+		0758FCB81FE7BBAB002D5902 /* OpenGLView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenGLView.h; sourceTree = "<group>"; };
+		0758FCB91FE7BBAB002D5902 /* OpenGLView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OpenGLView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +49,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0758FCAD1FE79FFC002D5902 /* QuartzCore.framework in Frameworks */,
+				0758FCAB1FE79FF5002D5902 /* OpenGLES.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +62,7 @@
 			children = (
 				0758FC8C1FE79657002D5902 /* OpenGLLearning003 */,
 				0758FC8B1FE79657002D5902 /* Products */,
+				0758FCA91FE79FF5002D5902 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,8 +77,7 @@
 		0758FC8C1FE79657002D5902 /* OpenGLLearning003 */ = {
 			isa = PBXGroup;
 			children = (
-				0758FCA71FE7966A002D5902 /* OpenGLView.h */,
-				0758FCA61FE7966A002D5902 /* OpenGLView.m */,
+				0758FCAE1FE7A417002D5902 /* 着色器 */,
 				0758FCA31FE79663002D5902 /* Shader.h */,
 				0758FCA41FE79663002D5902 /* Shader.m */,
 				0758FC8D1FE79657002D5902 /* AppDelegate.h */,
@@ -77,8 +89,29 @@
 				0758FC981FE79657002D5902 /* LaunchScreen.storyboard */,
 				0758FC9B1FE79657002D5902 /* Info.plist */,
 				0758FC9C1FE79657002D5902 /* main.m */,
+				0758FCB81FE7BBAB002D5902 /* OpenGLView.h */,
+				0758FCB91FE7BBAB002D5902 /* OpenGLView.m */,
 			);
 			path = OpenGLLearning003;
+			sourceTree = "<group>";
+		};
+		0758FCA91FE79FF5002D5902 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0758FCAC1FE79FFC002D5902 /* QuartzCore.framework */,
+				0758FCAA1FE79FF5002D5902 /* OpenGLES.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0758FCAE1FE7A417002D5902 /* 着色器 */ = {
+			isa = PBXGroup;
+			children = (
+				0758FCAF1FE7A467002D5902 /* Vershader.vs */,
+				0758FCB11FE7A47C002D5902 /* Fragment.frag */,
+				0758FCB31FE7B2EA002D5902 /* Fragment2.frag */,
+			);
+			path = "着色器";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -142,6 +175,9 @@
 				0758FC9A1FE79657002D5902 /* LaunchScreen.storyboard in Resources */,
 				0758FC971FE79657002D5902 /* Assets.xcassets in Resources */,
 				0758FC951FE79657002D5902 /* Main.storyboard in Resources */,
+				0758FCB01FE7A467002D5902 /* Vershader.vs in Resources */,
+				0758FCB41FE7B2EA002D5902 /* Fragment2.frag in Resources */,
+				0758FCB21FE7A47C002D5902 /* Fragment.frag in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,7 +192,7 @@
 				0758FC9D1FE79657002D5902 /* main.m in Sources */,
 				0758FCA51FE79663002D5902 /* Shader.m in Sources */,
 				0758FC8F1FE79657002D5902 /* AppDelegate.m in Sources */,
-				0758FCA81FE7966A002D5902 /* OpenGLView.m in Sources */,
+				0758FCBA1FE7BBAB002D5902 /* OpenGLView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

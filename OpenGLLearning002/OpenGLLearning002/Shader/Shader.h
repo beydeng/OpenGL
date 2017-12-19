@@ -11,9 +11,9 @@
 #import <OpenGLES/ES3/glext.h>
 
 @interface Shader : NSObject
-{
-    GLuint programHandle;
-}
+
+@property (nonatomic,assign) GLuint programHandle;
+
 
 -(void)shaderVertexPath:(NSString *)vertexPath fragmentPath:(NSString *)fragmentPath;
 
