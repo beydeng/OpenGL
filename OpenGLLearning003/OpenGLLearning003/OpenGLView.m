@@ -8,10 +8,9 @@
 
 
 #import "OpenGLView.h"
-#import <OpenGLES/ES3/gl.h>
-#import <OpenGLES/ES3/glext.h>
-#import <QuartzCore/QuartzCore.h>
 #import "Shader.h"
+#import "ToGLfloat.h"
+#import <GLKit/GLKit.h>
 
 @interface OpenGLView()
 {
@@ -93,7 +92,7 @@
     CGFloat texWidth = CGImageGetWidth(textureImage);
     CGFloat texHeight = CGImageGetHeight(textureImage);
     
-    GLubyte *textureData = (GLubyte *)malloc(texWidth * texHeight * 4);
+    GLubyte *textureData = (GLubyte *) calloc(texWidth * texHeight * 4, sizeof(GLubyte));
     
     CGContextRef textureContext = CGBitmapContextCreate(textureData,
                                                         texWidth, texHeight,
@@ -110,6 +109,8 @@
     glBindTexture(GL_TEXTURE_2D, texture);
     
     //下面使用glTexImage2D生成纹理
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, texWidth, texHeight, 0, GL_RGBA, GL_UNSIGNED_BYTE, textureData);
     /*
      第一个参数指定了纹理目标(Target)。设置为GL_TEXTURE_2D意味着会生成与当前绑定的纹理对象在同一个目标上的纹理（任何绑定到GL_TEXTURE_1D和GL_TEXTURE_3D的纹理不会受到影响）。
@@ -127,6 +128,7 @@
     
     //解绑纹理对象是一个很好的习惯
     glBindTexture(GL_TEXTURE_2D, 0);
+    free(textureData);
     
     return texture;
     
@@ -266,25 +268,24 @@
     glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)(3* sizeof(GLfloat)));
     glEnableVertexAttribArray(1);
     //纹理属性
-    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)(2* sizeof(GLfloat)));
+    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)(6* sizeof(GLfloat)));
     glEnableVertexAttribArray(2);
-    
-    
-    //为了使用第二个纹理（以及第一个），我们必须改变一点渲染流程，先绑定两个纹理到对应的纹理单元，然后定义哪个uniform采样器对应哪个纹理单元：
-
-    GLuint texture1 = [self loadTheImage:@"wall"];
-    glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_2D,texture1);
-    glUniform1i(glGetUniformLocation(shader.programHandle, "ourTexture"), 0);
-
-    GLuint texture2 = [self loadTheImage:@"awesomeface"];
-    glActiveTexture(GL_TEXTURE1);
-    glBindTexture(GL_TEXTURE_2D,texture2);
-    glUniform1i(glGetUniformLocation(shader.programHandle, "ourTexture1"), 1);
     
     glClearColor(0, 1, 1, 1);
     glClear(GL_COLOR_BUFFER_BIT);
     glViewport(0, 200, 200, 200);
+    
+    //为了使用第二个纹理（以及第一个），我们必须改变一点渲染流程，先绑定两个纹理到对应的纹理单元，然后定义哪个uniform采样器对应哪个纹理单元：
+    GLuint texture1 = [self loadTheImage:@"awesomeface"];
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D,texture1);
+    GLuint hh = glGetUniformLocation(shader.programHandle, "myTexTure");
+    glUniform1i(hh, 0);
+    
+    GLuint texture2 = [self loadTheImage:@"awesomeface"];
+    glActiveTexture(GL_TEXTURE1);
+    glBindTexture(GL_TEXTURE_2D,texture2);
+    glUniform1i(glGetUniformLocation(shader.programHandle, "myTexTure1"), 1);
     
     glBindVertexArray(VAO);
     glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
@@ -295,24 +296,119 @@
     
 }
 
+#pragma -mark 矩阵的使用
+-(void)useJuz{
+    
+    
+    [self setLayer];
+    [self setupContext];
+    [self setBuffer];
+    
+    Shader *shader = [[Shader alloc]init];
+    NSString* verShaderPath = [[NSBundle mainBundle] pathForResource:@"VershaderJuzheng"
+                                                              ofType:@"vs"];
+    NSString* fragShaderPath = [[NSBundle mainBundle] pathForResource:@"Fragment2"
+                                                               ofType:@"frag"];
+    
+    
+    [shader shaderVertexPath:verShaderPath fragmentPath:fragShaderPath];
+    
+    [shader use];
+    
+    //下面我们使用纹理
+    
+    GLfloat vertices[] = {
+        //     ---- 位置 ----       ---- 颜色 ----     - 纹理坐标 -
+        0.5f,  0.5f, 0.0f,   1.0f, 0.0f, 0.0f,   1.0f, 1.0f,   // 右上
+        0.5f, -0.5f, 0.0f,   0.0f, 1.0f, 0.0f,   1.0f, 0.0f,   // 右下
+        -0.5f, -0.5f, 0.0f,   0.0f, 0.0f, 1.0f,   0.0f, 0.0f,   // 左下
+        -0.5f,  0.5f, 0.0f,   1.0f, 1.0f, 0.0f,   0.0f, 1.0f    // 左上
+    };
+    GLuint indices[] = {
+        0, 1, 3,
+        1, 2, 3
+    };
+    
+    // 1. 绑定顶点数组对象
+    GLuint VAO;
+    glGenVertexArrays(1, &VAO);
+    glBindVertexArray(VAO);
+    
+    // 2. 把我们的顶点数组复制到一个顶点缓冲中，供OpenGL使用
+    GLuint VBO;
+    glGenBuffers(1, &VBO);
+    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+    // 3. 复制我们的索引数组到一个索引缓冲中，供OpenGL使用
+    GLuint EBO;
+    glGenBuffers(1, &EBO);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+    
+    // 位置属性
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)0);
+    glEnableVertexAttribArray(0);
+    // 颜色属性
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)(3* sizeof(GLfloat)));
+    glEnableVertexAttribArray(1);
+    //纹理属性
+    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)(6* sizeof(GLfloat)));
+    glEnableVertexAttribArray(2);
+    
+    glClearColor(0, 1, 1, 1);
+    glClear(GL_COLOR_BUFFER_BIT);
+    glViewport(0, 200, 200, 200);
+    
+    GLuint texture1 = [self loadTheImage:@"awesomeface"];
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D,texture1);
+    GLuint hh = glGetUniformLocation(shader.programHandle, "myTexTure");
+    glUniform1i(hh, 0);
+    
+//    GLuint texture2 = [self loadTheImage:@"wall"];
+//    glActiveTexture(GL_TEXTURE1);
+//    glBindTexture(GL_TEXTURE_2D,texture2);
+//    glUniform1i(glGetUniformLocation(shader.programHandle, "myTexTure1"), 1);
+    
+    //矩阵的使用
+    GLuint transFormLoc = glGetUniformLocation(shader.programHandle, "transform");
+    
+    //下面我们把一个第一个方法的生成的箱子逆时针旋转90度。然后缩放0.5倍，使它变成原来的一半大。
+    //构建一个变换矩阵
+    //为了构建一个一个矩阵，引入GLKit
+    
+    GLKMatrix4 position = GLKMatrix4Identity;
+    //位移矩阵
+    position = GLKMatrix4Translate(position, 0.5, -0.5, 0.0f);
+    //旋转矩阵
+    position = GLKMatrix4RotateZ(position, M_PI_2);
+    //缩放矩阵
+    position = GLKMatrix4Scale(position, 0.5, 0.5, 0.5);
+    
+    glUniformMatrix4fv(transFormLoc, 1, GL_FALSE, position.m);
+    
+    glBindVertexArray(VAO);
+    glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+    
+    [_context presentRenderbuffer:GL_RENDERBUFFER];
+    
+    glBindVertexArray(0); //解绑VAO
+
+}
+
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
         
-        [self comDoubleText];
+//        [self comDoubleText];
+        
+        [self useJuz];
         
     }
     return self;
 }
 
-/*
- // Only override drawRect: if you perform custom drawing.
- // An empty implementation adversely affects performance during animation.
- - (void)drawRect:(CGRect)rect {
- // Drawing code
- }
- */
 
 @end
 

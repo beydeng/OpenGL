@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0734A5001FE9105600444AAD /* ToGLfloat.m in Sources */ = {isa = PBXBuildFile; fileRef = 0734A4FF1FE9105600444AAD /* ToGLfloat.m */; };
+		074582981FE8F91E0037A6B5 /* VershaderJuzheng.vs in Resources */ = {isa = PBXBuildFile; fileRef = 074582971FE8F91E0037A6B5 /* VershaderJuzheng.vs */; };
 		0758FC8F1FE79657002D5902 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0758FC8E1FE79657002D5902 /* AppDelegate.m */; };
 		0758FC921FE79657002D5902 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0758FC911FE79657002D5902 /* ViewController.m */; };
 		0758FC951FE79657002D5902 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0758FC931FE79657002D5902 /* Main.storyboard */; };
@@ -23,6 +25,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0734A4FE1FE9105600444AAD /* ToGLfloat.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToGLfloat.h; sourceTree = "<group>"; };
+		0734A4FF1FE9105600444AAD /* ToGLfloat.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToGLfloat.m; sourceTree = "<group>"; };
+		074582971FE8F91E0037A6B5 /* VershaderJuzheng.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = VershaderJuzheng.vs; sourceTree = "<group>"; };
 		0758FC8A1FE79657002D5902 /* OpenGLLearning003.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenGLLearning003.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0758FC8D1FE79657002D5902 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0758FC8E1FE79657002D5902 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -57,6 +62,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0734A4FD1FE9102B00444AAD /* TurnCATransform3DToGLfloat */ = {
+			isa = PBXGroup;
+			children = (
+				0734A4FE1FE9105600444AAD /* ToGLfloat.h */,
+				0734A4FF1FE9105600444AAD /* ToGLfloat.m */,
+			);
+			path = TurnCATransform3DToGLfloat;
+			sourceTree = "<group>";
+		};
 		0758FC811FE79657002D5902 = {
 			isa = PBXGroup;
 			children = (
@@ -77,6 +91,7 @@
 		0758FC8C1FE79657002D5902 /* OpenGLLearning003 */ = {
 			isa = PBXGroup;
 			children = (
+				0734A4FD1FE9102B00444AAD /* TurnCATransform3DToGLfloat */,
 				0758FCAE1FE7A417002D5902 /* 着色器 */,
 				0758FCA31FE79663002D5902 /* Shader.h */,
 				0758FCA41FE79663002D5902 /* Shader.m */,
@@ -110,6 +125,7 @@
 				0758FCAF1FE7A467002D5902 /* Vershader.vs */,
 				0758FCB11FE7A47C002D5902 /* Fragment.frag */,
 				0758FCB31FE7B2EA002D5902 /* Fragment2.frag */,
+				074582971FE8F91E0037A6B5 /* VershaderJuzheng.vs */,
 			);
 			path = "着色器";
 			sourceTree = "<group>";
@@ -172,6 +188,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				074582981FE8F91E0037A6B5 /* VershaderJuzheng.vs in Resources */,
 				0758FC9A1FE79657002D5902 /* LaunchScreen.storyboard in Resources */,
 				0758FC971FE79657002D5902 /* Assets.xcassets in Resources */,
 				0758FC951FE79657002D5902 /* Main.storyboard in Resources */,
@@ -190,6 +207,7 @@
 			files = (
 				0758FC921FE79657002D5902 /* ViewController.m in Sources */,
 				0758FC9D1FE79657002D5902 /* main.m in Sources */,
+				0734A5001FE9105600444AAD /* ToGLfloat.m in Sources */,
 				0758FCA51FE79663002D5902 /* Shader.m in Sources */,
 				0758FC8F1FE79657002D5902 /* AppDelegate.m in Sources */,
 				0758FCBA1FE7BBAB002D5902 /* OpenGLView.m in Sources */,
