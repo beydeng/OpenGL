@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import <GLKit/GLKit.h>
+#import "OpenGLView.h"
 
 @interface ViewController ()
 
@@ -18,8 +18,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    OpenGLView *openView = [[OpenGLView alloc]initWithFrame:self.view.frame];
     
-    GLKMatrix4MakePerspective(<#float fovyRadians#>, <#float aspect#>, <#float nearZ#>, <#float farZ#>)
+    [self.view addSubview:openView];
+    
     
     // Do any additional setup after loading the view, typically from a nib.
 }

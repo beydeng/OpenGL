@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		071B8B801FEB43D40096F1B1 /* OpenGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 071B8B7F1FEB43D40096F1B1 /* OpenGLView.m */; };
+		071B8B821FEB47F70096F1B1 /* Vertex.vs in Resources */ = {isa = PBXBuildFile; fileRef = 071B8B811FEB47F70096F1B1 /* Vertex.vs */; };
+		071B8B8C1FEB4F6B0096F1B1 /* Shader.m in Sources */ = {isa = PBXBuildFile; fileRef = 071B8B8A1FEB4EB60096F1B1 /* Shader.m */; };
+		071B8B901FEB61800096F1B1 /* Fragment.frag in Resources */ = {isa = PBXBuildFile; fileRef = 071B8B8F1FEB61800096F1B1 /* Fragment.frag */; };
 		071D37721FEA03B4008EABDE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 071D37711FEA03B4008EABDE /* AppDelegate.m */; };
 		071D37751FEA03B4008EABDE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 071D37741FEA03B4008EABDE /* ViewController.m */; };
 		071D37781FEA03B4008EABDE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 071D37761FEA03B4008EABDE /* Main.storyboard */; };
@@ -16,6 +20,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		071B8B7E1FEB43D40096F1B1 /* OpenGLView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenGLView.h; sourceTree = "<group>"; };
+		071B8B7F1FEB43D40096F1B1 /* OpenGLView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OpenGLView.m; sourceTree = "<group>"; };
+		071B8B811FEB47F70096F1B1 /* Vertex.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Vertex.vs; sourceTree = "<group>"; };
+		071B8B8A1FEB4EB60096F1B1 /* Shader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Shader.m; path = OpenGLLearning004/Shader.m; sourceTree = SOURCE_ROOT; };
+		071B8B8B1FEB4EB70096F1B1 /* Shader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Shader.h; path = OpenGLLearning004/Shader.h; sourceTree = SOURCE_ROOT; };
+		071B8B8F1FEB61800096F1B1 /* Fragment.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Fragment.frag; sourceTree = "<group>"; };
 		071D376D1FEA03B4008EABDE /* OpenGLLearning004.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenGLLearning004.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		071D37701FEA03B4008EABDE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		071D37711FEA03B4008EABDE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -67,6 +77,12 @@
 				071D377B1FEA03B4008EABDE /* LaunchScreen.storyboard */,
 				071D377E1FEA03B4008EABDE /* Info.plist */,
 				071D377F1FEA03B4008EABDE /* main.m */,
+				071B8B7E1FEB43D40096F1B1 /* OpenGLView.h */,
+				071B8B7F1FEB43D40096F1B1 /* OpenGLView.m */,
+				071B8B8B1FEB4EB70096F1B1 /* Shader.h */,
+				071B8B8A1FEB4EB60096F1B1 /* Shader.m */,
+				071B8B811FEB47F70096F1B1 /* Vertex.vs */,
+				071B8B8F1FEB61800096F1B1 /* Fragment.frag */,
 			);
 			path = OpenGLLearning004;
 			sourceTree = "<group>";
@@ -131,7 +147,9 @@
 			files = (
 				071D377D1FEA03B4008EABDE /* LaunchScreen.storyboard in Resources */,
 				071D377A1FEA03B4008EABDE /* Assets.xcassets in Resources */,
+				071B8B821FEB47F70096F1B1 /* Vertex.vs in Resources */,
 				071D37781FEA03B4008EABDE /* Main.storyboard in Resources */,
+				071B8B901FEB61800096F1B1 /* Fragment.frag in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,6 +163,8 @@
 				071D37751FEA03B4008EABDE /* ViewController.m in Sources */,
 				071D37801FEA03B4008EABDE /* main.m in Sources */,
 				071D37721FEA03B4008EABDE /* AppDelegate.m in Sources */,
+				071B8B801FEB43D40096F1B1 /* OpenGLView.m in Sources */,
+				071B8B8C1FEB4F6B0096F1B1 /* Shader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,8 +300,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6MVF2K4FPQ;
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = OpenGLLearning004/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "-01.Beydeng.OpenGLLearning004";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -294,8 +316,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6MVF2K4FPQ;
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = OpenGLLearning004/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "-01.Beydeng.OpenGLLearning004";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
