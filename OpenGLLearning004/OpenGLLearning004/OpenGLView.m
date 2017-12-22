@@ -447,7 +447,7 @@
         
         glUniformMatrix4fv(modelLoc, 1, GL_FALSE,model.m);
         glDrawArrays(GL_TRIANGLES, 0, 36);
-        
+                
     }
     
 }
