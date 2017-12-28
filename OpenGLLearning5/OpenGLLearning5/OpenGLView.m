@@ -14,6 +14,7 @@
 #import <GLKit/GLKit.h>
 #import "Shader.h"
 
+
 @interface OpenGLView()
 {
     EAGLContext *_context;
@@ -202,6 +203,7 @@
 {
     i++;
     
+    
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
     GLKMatrix4 model = GLKMatrix4Identity;
@@ -319,6 +321,7 @@
 //        [btn addTarget:self action:@selector(btnDown:) forControlEvents:UIControlEventTouchDown];
         
         UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(btnDown:)];
+        longPress.minimumPressDuration = 0.1;
         [btn addGestureRecognizer:longPress];
         
         btn.backgroundColor = [UIColor yellowColor];
@@ -331,11 +334,18 @@
 -(void)btnDown:(UILongPressGestureRecognizer *)sender
 {
     
-    GLfloat cameraSpeed = 0.05f;
+    //目前我们的移动速度是个常量。看起来不错，但是实际情况下根据处理器的能力不同，有的人在同一段时间内会比其他人绘制更多帧。也就是调用了更多次do_movement函数。每个人的运动速度就都不同了。当你要发布的你应用的时候，你必须确保在所有硬件上移动速度都一样。
+    //图形和游戏应用 通常会有一个跟踪变量deltaTime，它储存渲染上一帧所用的时间
+    //图形和游戏应用通常有回跟踪一个deltaTime变量，它储存渲染上一帧所用的时间。我们把所有速度都去乘以deltaTime值。当我们的deltaTime变大时意味着上一帧渲染花了更多时间，所以这一帧使用这个更大的deltaTime的值乘以速度，会获得更高的速度，这样就与上一帧平衡了。使用这种方法时，无论你的机器快还是慢，摄像机的速度都会保持一致，这样每个用户的体验就都一样了。
+    //在shader中 我们用宏定义来获取没一帧所用的时间
+    
+    TICK;
+    
+    //GLfloat cameraSpeed = 0.05f;
+    
+    GLfloat cameraSpeed = 5.0f*TOCK*10000;
     
     UIButton *btn = (UIButton *)sender.view;
-    
-    NSLog(@"1111");
     
     if ([btn.titleLabel.text isEqualToString:@"w"]) {
         
