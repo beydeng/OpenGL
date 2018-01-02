@@ -99,7 +99,7 @@ const GLfloat kColorConversion601FullRange[] = {
         
         CAEAGLLayer *eaglLayer = (CAEAGLLayer *)self.layer;
         
-        eaglLayer.opaque = TRUE;
+        eaglLayer.opaque = YES;
         eaglLayer.drawableProperties = @{ kEAGLDrawablePropertyRetainedBacking :[NSNumber numberWithBool:NO],
                                           kEAGLDrawablePropertyColorFormat : kEAGLColorFormatRGBA8};
         
@@ -221,10 +221,10 @@ const GLfloat kColorConversion601FullRange[] = {
         }
 		[self cleanUpTextures];
 		
-		
 		/*
 		 Use the color attachment of the pixel buffer to determine the appropriate color conversion matrix.
 		 */
+        
 		CFTypeRef colorAttachments = CVBufferGetAttachment(pixelBuffer, kCVImageBufferYCbCrMatrixKey, NULL);
 		
 		if (colorAttachments == kCVImageBufferYCbCrMatrix_ITU_R_601_4) {

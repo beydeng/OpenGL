@@ -37,7 +37,7 @@
     [self.mGLView setupGL];
     
     self.mCaptureSession = [[AVCaptureSession alloc] init];
-    self.mCaptureSession.sessionPreset = AVCaptureSessionPreset640x480;
+    self.mCaptureSession.sessionPreset = AVCaptureSessionPresetHigh;
     
     mProcessQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0);
     
@@ -70,7 +70,6 @@
     
     AVCaptureConnection *connection = [self.mCaptureDeviceOutput connectionWithMediaType:AVMediaTypeVideo];
     [connection setVideoOrientation:AVCaptureVideoOrientationPortraitUpsideDown];
-    
     
     [self.mCaptureSession startRunning];
     
