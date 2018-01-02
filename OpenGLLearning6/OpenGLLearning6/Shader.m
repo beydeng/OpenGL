@@ -8,9 +8,7 @@
 
 #import "Shader.h"
 
-
 @implementation Shader
-
 
 -(GLuint)compileShader:(NSString *)shaderPath withType:(GLenum)shaderType
 {
@@ -98,5 +96,49 @@
     glUseProgram(self.programHandle);
     glDeleteShader(self.programHandle);
 }
+
+-(GLuint)loadTheImage:(NSString *)imageName{
+    
+    //可以使用SOIL.lib库，这里我们使用CGImage
+    
+    CGImageRef textureImage = [UIImage imageNamed:imageName].CGImage;
+    if (textureImage == nil) {
+        NSLog(@"Failed to load texture image");
+    }
+    
+    CGFloat texWidth = CGImageGetWidth(textureImage);
+    CGFloat texHeight = CGImageGetHeight(textureImage);
+    
+    GLubyte *textureData = (GLubyte *) calloc(texWidth * texHeight * 4, sizeof(GLubyte));
+    
+    CGContextRef textureContext = CGBitmapContextCreate(textureData,
+                                                        texWidth, texHeight,
+                                                        8, texWidth * 4,
+                                                        CGImageGetColorSpace(textureImage),
+                                                        kCGImageAlphaPremultipliedLast);
+    CGContextDrawImage(textureContext, CGRectMake(0.0, 0.0, (float)texWidth, (float)texHeight), textureImage);
+    CGContextRelease(textureContext);
+    
+    //生成纹理
+    
+    GLuint texture;
+    glGenBuffers(1, &texture);
+    glBindTexture(GL_TEXTURE_2D, texture);
+    
+    //下面使用glTexImage2D生成纹理
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, texWidth, texHeight, 0, GL_RGBA, GL_UNSIGNED_BYTE, textureData);
+    
+    glGenerateMipmap(GL_TEXTURE_2D);
+    
+    //解绑纹理对象是一个很好的习惯
+    glBindTexture(GL_TEXTURE_2D, 0);
+    free(textureData);
+    
+    return texture;
+    
+}
+
 
 @end

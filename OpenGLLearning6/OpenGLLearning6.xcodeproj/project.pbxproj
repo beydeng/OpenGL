@@ -13,8 +13,12 @@
 		079A3AE81FF4D2E10061642C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 079A3AE71FF4D2E10061642C /* Assets.xcassets */; };
 		079A3AEB1FF4D2E10061642C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 079A3AE91FF4D2E10061642C /* LaunchScreen.storyboard */; };
 		079A3AEE1FF4D2E10061642C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 079A3AED1FF4D2E10061642C /* main.m */; };
-		079A3AF61FF4D4D10061642C /* Shader.m in Sources */ = {isa = PBXBuildFile; fileRef = 079A3AF41FF4D4D10061642C /* Shader.m */; };
-		079A3AF91FF4D5130061642C /* OpenGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 079A3AF81FF4D5130061642C /* OpenGLView.m */; };
+		079A3AFC1FF4D9BC0061642C /* OpenGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 079A3AFB1FF4D9BC0061642C /* OpenGLView.m */; };
+		079A3B021FF4DA7B0061642C /* Shader.m in Sources */ = {isa = PBXBuildFile; fileRef = 079A3B011FF4DA7B0061642C /* Shader.m */; };
+		079A3B041FF4DC0B0061642C /* Vertex.vs in Resources */ = {isa = PBXBuildFile; fileRef = 079A3B031FF4DC0B0061642C /* Vertex.vs */; };
+		079A3B061FF4DC1A0061642C /* Fragment.frag in Resources */ = {isa = PBXBuildFile; fileRef = 079A3B051FF4DC1A0061642C /* Fragment.frag */; };
+		079A3B081FF4E9510061642C /* LightVertex.vs in Resources */ = {isa = PBXBuildFile; fileRef = 079A3B071FF4E9510061642C /* LightVertex.vs */; };
+		079A3B0A1FF4E9650061642C /* LightFragment.frag in Resources */ = {isa = PBXBuildFile; fileRef = 079A3B091FF4E9650061642C /* LightFragment.frag */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,10 +32,14 @@
 		079A3AEA1FF4D2E10061642C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		079A3AEC1FF4D2E10061642C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		079A3AED1FF4D2E10061642C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		079A3AF41FF4D4D10061642C /* Shader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Shader.m; sourceTree = "<group>"; };
-		079A3AF51FF4D4D10061642C /* Shader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Shader.h; sourceTree = "<group>"; };
-		079A3AF71FF4D5130061642C /* OpenGLView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenGLView.h; sourceTree = "<group>"; };
-		079A3AF81FF4D5130061642C /* OpenGLView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OpenGLView.m; sourceTree = "<group>"; };
+		079A3AFA1FF4D9BC0061642C /* OpenGLView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenGLView.h; sourceTree = "<group>"; };
+		079A3AFB1FF4D9BC0061642C /* OpenGLView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OpenGLView.m; sourceTree = "<group>"; };
+		079A3B001FF4DA7B0061642C /* Shader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Shader.h; sourceTree = "<group>"; };
+		079A3B011FF4DA7B0061642C /* Shader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Shader.m; sourceTree = "<group>"; };
+		079A3B031FF4DC0B0061642C /* Vertex.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Vertex.vs; sourceTree = "<group>"; };
+		079A3B051FF4DC1A0061642C /* Fragment.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Fragment.frag; sourceTree = "<group>"; };
+		079A3B071FF4E9510061642C /* LightVertex.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = LightVertex.vs; sourceTree = "<group>"; };
+		079A3B091FF4E9650061642C /* LightFragment.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = LightFragment.frag; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,10 +72,10 @@
 		079A3ADD1FF4D2E10061642C /* OpenGLLearning6 */ = {
 			isa = PBXGroup;
 			children = (
-				079A3AF71FF4D5130061642C /* OpenGLView.h */,
-				079A3AF81FF4D5130061642C /* OpenGLView.m */,
-				079A3AF51FF4D4D10061642C /* Shader.h */,
-				079A3AF41FF4D4D10061642C /* Shader.m */,
+				079A3B001FF4DA7B0061642C /* Shader.h */,
+				079A3B011FF4DA7B0061642C /* Shader.m */,
+				079A3AFA1FF4D9BC0061642C /* OpenGLView.h */,
+				079A3AFB1FF4D9BC0061642C /* OpenGLView.m */,
 				079A3ADE1FF4D2E10061642C /* AppDelegate.h */,
 				079A3ADF1FF4D2E10061642C /* AppDelegate.m */,
 				079A3AE11FF4D2E10061642C /* ViewController.h */,
@@ -77,6 +85,10 @@
 				079A3AE91FF4D2E10061642C /* LaunchScreen.storyboard */,
 				079A3AEC1FF4D2E10061642C /* Info.plist */,
 				079A3AED1FF4D2E10061642C /* main.m */,
+				079A3B031FF4DC0B0061642C /* Vertex.vs */,
+				079A3B051FF4DC1A0061642C /* Fragment.frag */,
+				079A3B071FF4E9510061642C /* LightVertex.vs */,
+				079A3B091FF4E9650061642C /* LightFragment.frag */,
 			);
 			path = OpenGLLearning6;
 			sourceTree = "<group>";
@@ -140,8 +152,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				079A3AEB1FF4D2E10061642C /* LaunchScreen.storyboard in Resources */,
+				079A3B0A1FF4E9650061642C /* LightFragment.frag in Resources */,
 				079A3AE81FF4D2E10061642C /* Assets.xcassets in Resources */,
+				079A3B041FF4DC0B0061642C /* Vertex.vs in Resources */,
 				079A3AE61FF4D2E10061642C /* Main.storyboard in Resources */,
+				079A3B061FF4DC1A0061642C /* Fragment.frag in Resources */,
+				079A3B081FF4E9510061642C /* LightVertex.vs in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,9 +170,9 @@
 			files = (
 				079A3AE31FF4D2E10061642C /* ViewController.m in Sources */,
 				079A3AEE1FF4D2E10061642C /* main.m in Sources */,
-				079A3AF61FF4D4D10061642C /* Shader.m in Sources */,
 				079A3AE01FF4D2E10061642C /* AppDelegate.m in Sources */,
-				079A3AF91FF4D5130061642C /* OpenGLView.m in Sources */,
+				079A3AFC1FF4D9BC0061642C /* OpenGLView.m in Sources */,
+				079A3B021FF4DA7B0061642C /* Shader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

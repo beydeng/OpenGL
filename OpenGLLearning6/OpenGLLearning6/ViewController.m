@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "OpenGLView.h"
 
 @interface ViewController ()
 
@@ -16,6 +17,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    OpenGLView *view = [[OpenGLView alloc]initWithFrame:self.view.frame];
+    
+    [self.view addSubview:view];
+    
     // Do any additional setup after loading the view, typically from a nib.
 }
 
