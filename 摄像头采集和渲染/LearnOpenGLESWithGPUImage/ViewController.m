@@ -33,7 +33,7 @@
     
     self.mGLView = [[BeydengOpenGLView alloc]initWithFrame:self.view.frame];;
     [self.view addSubview:self.mGLView];
-    
+
     [self.mGLView setupGL];
     
     self.mCaptureSession = [[AVCaptureSession alloc] init];
@@ -72,11 +72,11 @@
     [connection setVideoOrientation:AVCaptureVideoOrientationPortraitUpsideDown];
     
     [self.mCaptureSession startRunning];
-    
 
     self.mLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, 100, 100)];
     self.mLabel.textColor = [UIColor redColor];
     [self.view addSubview:self.mLabel];
+    
 }
 
 
